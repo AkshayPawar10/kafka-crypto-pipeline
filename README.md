@@ -15,6 +15,10 @@ A real-time data pipeline that streams cryptocurrency price data using a Kafka *
 
 ---
 
+## 🔁 Kafka running in backend 
+ 
+ ![Zookeeper and Kafka](https://github.com/user-attachments/assets/9fb35e45-adb0-408c-8d5a-3142a14d96df)
+
 ## 🏭 Kafka Producer
 
 - Connects to a public crypto API at fixed intervals (e.g., every 5 seconds)
