@@ -21,8 +21,8 @@ A real-time data pipeline that streams cryptocurrency price data using a Kafka *
 - Publishes price data to a Kafka topic like `crypto-prices`
 - Written in Python using `kafka-python`
 
+https://github.com/user-attachments/assets/8a292dae-8602-4611-8dca-e3eedc584d27
 ```python
-![image](https://github.com/user-attachments/assets/8a292dae-8602-4611-8dca-e3eedc584d27)
 
 from kafka import KafkaProducer
 import requests, json
