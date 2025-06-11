@@ -15,10 +15,6 @@ A real-time data pipeline that streams cryptocurrency price data using a Kafka *
 
 ---
 
-## 🔁 Zookeeper and Kafka running in backend 
- 
- ![Zookeeper and Kafka](https://github.com/user-attachments/assets/9fb35e45-adb0-408c-8d5a-3142a14d96df)
-
 ## 🏭 Kafka Producer
 
 - Connects to a public crypto API at fixed intervals (e.g., every 5 seconds)
@@ -42,7 +38,7 @@ topic = 'crypto_ticker_stream'
 ```
 
 ---
-## 📥 Kafka Consumer (Python)
+## 📥 Kafka Consumer 
 - Consumes data from crypto-topic.
 - Converts to Parquet format.
 - Uploads files to S3 in batches.
@@ -61,18 +57,16 @@ consumer = KafkaConsumer(
     bootstrap_servers=['35.154.244.134:9092'],
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
-
 ---
-
 ## 🧠 Athena Query Example
 
 ```sql
 SELECT symbol, COUNT(*) AS total_records
 FROM crypto_kafka.akshay_test1_bucket
 GROUP BY symbol
-ORDER BY total_records DESC;
+ORDER BY total_records DESC
 ```
-
+---
 
 ## 📸 Screenshots
 
