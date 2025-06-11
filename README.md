@@ -15,7 +15,7 @@ A real-time data pipeline that streams cryptocurrency price data using a Kafka *
 
 ---
 
-## 🔁 Kafka running in backend 
+## 🔁 Zookeeper and Kafka running in backend 
  
  ![Zookeeper and Kafka](https://github.com/user-attachments/assets/9fb35e45-adb0-408c-8d5a-3142a14d96df)
 
@@ -26,14 +26,41 @@ A real-time data pipeline that streams cryptocurrency price data using a Kafka *
 - Written in Python using `kafka-python`
 
 ```python
+# Import requied libraries
+import websocket
+import json
+import time 
+from kafka import KafkaProducer
+from datetime import datetime
 
-# Kafka config
+# Kafka Producer config
 producer = KafkaProducer(
     bootstrap_servers='35.154.244.134:9092',
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 topic = 'crypto_ticker_stream'
 ```
+
+---
+## 📥 Kafka Consumer (Python)
+- Consumes data from crypto-topic.
+- Converts to Parquet format.
+- Uploads files to S3 in batches.
+
+```python
+# Import requied libraries
+from kafka import KafkaConsumer
+import pandas as pd
+import s3fs
+import json
+from datetime import datetime
+
+# Kafka consumer config
+consumer = KafkaConsumer(
+    'crypto_ticker_stream',
+    bootstrap_servers=['35.154.244.134:9092'],
+    value_deserializer=lambda x: json.loads(x.decode('utf-8'))
+)
 
 ---
 
