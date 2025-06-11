@@ -1,6 +1,6 @@
 # ⚡ Kafka Crypto Stream with S3-Triggered Lambda
 
-A real-time data pipeline that streams cryptocurrency price data using a Kafka **Producer-Consumer** setup, stores it in AWS S3 in Parquet format, and processes it using AWS Lambda, Glue, and Athena for querying and analysis.
+A real-time data pipeline that streams cryptocurrency price data using a Kafka Producer-Consumer setup hosted on AWS EC2, stores the data in AWS S3 in Parquet format, and leverages AWS Lambda, AWS Glue, and Amazon Athena for automated data cataloging, processing, and on-demand querying and analysis.
 
 ---
 
