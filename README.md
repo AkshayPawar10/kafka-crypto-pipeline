@@ -21,21 +21,14 @@ A real-time data pipeline that streams cryptocurrency price data using a Kafka *
 - Publishes price data to a Kafka topic like `crypto-prices`
 - Written in Python using `kafka-python`
 
-https://github.com/user-attachments/assets/8a292dae-8602-4611-8dca-e3eedc584d27
 ```python
 
-from kafka import KafkaProducer
-import requests, json
-
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
-
-def get_crypto_data():
-    response = requests.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
-    return json.dumps(response.json()).encode('utf-8')
-
-while True:
-    data = get_crypto_data()
-    producer.send('crypto-prices', value=data)
+# Kafka config
+producer = KafkaProducer(
+    bootstrap_servers='35.154.244.134:9092',
+    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+)
+topic = 'crypto_ticker_stream'
 ```
 
 ---
