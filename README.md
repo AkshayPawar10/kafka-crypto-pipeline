@@ -59,7 +59,7 @@ consumer = KafkaConsumer(
 )
 ```
 ---
-##🧠 Lambda Trigger
+## 🧠 Lambda Trigger
 Triggered by S3 upload to run Glue Crawler
 
 ```python
@@ -93,17 +93,17 @@ ORDER BY total_records DESC
 ![producer](https://github.com/user-attachments/assets/2ec044a1-80a8-489a-8090-8fc87c3bde22)
 ![consumer](https://github.com/user-attachments/assets/79db1ba5-e1eb-4c85-ad26-9e4206c2a4be)
 
-### 2. Parquet File Uploaded to S3
+### 3. Parquet File Uploaded to S3
+![S3](https://github.com/user-attachments/assets/8d3b9fc0-62de-4066-ab16-2d11c4ada023)
 
+### 4. Lambda Triggered by S3 Event
+![lambda_1](https://github.com/user-attachments/assets/1b92f040-e552-467b-8cef-f92c20767da4)
 
-### 3. Lambda Triggered by S3 Event
-![Lambda Trigger](assets/lambda_trigger.png)
+### 5. Glue Crawler Configuration
+![crawler](https://github.com/user-attachments/assets/3310c447-d90d-4da0-9144-dafcb4c85f45)
 
-### 4. Glue Crawler Configuration
-![Glue Crawler](assets/glue_crawler.png)
-
-### 5. Querying Data in Athena
-![Athena Results](assets/athena_query_results.png)
+### 6. Querying Data in Athena
+![Athena query](https://github.com/user-attachments/assets/9a1a50ce-2843-48d7-a0a5-91f17b842891)
 
 ---
 
