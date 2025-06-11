@@ -57,6 +57,22 @@ consumer = KafkaConsumer(
     bootstrap_servers=['35.154.244.134:9092'],
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
+```
+---
+##🧠 Lambda Trigger
+Triggered by S3 upload to run Glue Crawler
+
+```python
+import boto3
+def lambda_handler(event, context):
+    glue = boto3.client('glue')
+    response = glue.start_crawler(Name='crypto-kafka-project')  
+
+    return {
+        'statusCode': 200,
+        'body': f'Started Glue Crawler: {response}'
+    }
+```
 ---
 ## 🧠 Athena Query Example
 
@@ -70,11 +86,15 @@ ORDER BY total_records DESC
 
 ## 📸 Screenshots
 
-### 1. Kafka Producer & Consumer Running
-![Kafka Consumer](assets/kafka_consumer_terminal.png)
+### 1. Zookeeper and kafka running
+![Zookeeper and Kafka](https://github.com/user-attachments/assets/e0d71009-ae26-45b1-8314-ce17f58a3c27)
+
+### 2. Producer and Consumer running 
+![producer](https://github.com/user-attachments/assets/2ec044a1-80a8-489a-8090-8fc87c3bde22)
+![consumer](https://github.com/user-attachments/assets/79db1ba5-e1eb-4c85-ad26-9e4206c2a4be)
 
 ### 2. Parquet File Uploaded to S3
-![S3 Upload](assets/s3_parquet_upload.png)
+
 
 ### 3. Lambda Triggered by S3 Event
 ![Lambda Trigger](assets/lambda_trigger.png)
